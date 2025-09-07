@@ -2,37 +2,40 @@
 
 
 ## Domains
-1. Fitness tracking: I come from a competitive sports background and love exercise. I often go to the gym and like analyzing performance data to optimize workouts.
+The ten domains I identified for this project are the following: 
 
-2. City exploration: I love trying new neighborhoods, food spots, and hidden gems around Boston, but it's easy to miss things or fall into routines. I think having a city exploration app where you can unlock places, place stickers and photos on a pin for other areas you've visited, and more could be fun.
+1. Fitness tracking and (personal) optimization: I come from a competitive sports background and love exercise. I often go to the gym and like analyzing performance data to optimize my workouts.
 
-3. Visiting cafes and other food places: I enjoy checking out new cafes with friends. The challenge is deciding where to go as a group, since people have different tastes and budgets.
+2. City exploration and documentation: I love trying new neighborhoods, food spots, and hidden gems around Boston, but it's easy to miss things or fall into routines. I think having a city exploration app where you can unlock places, place stickers and photos on a pin for other areas you've visited, and more could be fun.
 
-4. Writing poetry: I like expressing myself through poetry, but I don't always keep my writing organized or revisit/edit past work. I also love receiving snippets or phrases to inspire my writing process, which I thought could be a good area to explore for this project.
+3. Visiting cafes (and other food places): I enjoy checking out new cafes and other food places I've seen online with friends. The challenge is deciding where to go as a group, since people have different tastes and budgets.
 
-5. Choosing date ideas or locations:  
+4. Writing poetry: I like expressing myself through poetry, but I don't always keep my writing organized, revisit/edit past work, or have inspiration for new poems often. I love seeing snippets or phrases to inspire my writing process, which I thought could be a good area to explore for this project.
+
+5. Choosing unique date ideas/locations: For me, coming up with fun and meaningful date ideas can be surprisingly hard. Even in a city with supposedly many options, it's easy to fall into repetitive routines (like always going to dinner or coffee). I think it would be interesting to have a tool that can help generate and organize creative date ideas/locations to make planning feel more exciting.
 
 6. Organizing and summarizing work items: I generate a lot of work at school and internships (projects, notes, tasks), but struggle to capture what I've accomplished in a form that's streamlined and very useful later for resumes or reviews. Being able to understand and succinctly explain work that you've done is also crucial in the workplace, which makes this domain relevant to everyone.
 
-7. Finding good picture spots: I love photography and exploring, but it's hard to know where the best aesthetic spots are, especially in a new city. Social media can help fill in some of the blanks, but some areas recommended solely by influencers can be underwhelming or overcrowded.
+7. Finding good or niche picture spots: I love photography and exploring, but it's hard to know where the best aesthetic spots are, especially in a new city. Social media can help fill in some of the blanks, but some areas recommended solely by influencers can be underwhelming or overcrowded.
 
 8. Drinking matcha: As someone who cannot drink coffee, I love matcha for its health benefits and its caffeine content. I like discovering high-quality cafes that serve it, but the quality varies widely and reviews don't always help.
 
-9. Picking classes: At MIT, there are so many good course options. Balancing requirements, interest, and workload can be daunting, especially in earlier years being at this school.
+9. Picking fulfilling classes: At MIT, there are so many good course options. I personally think balancing requirements, interest, and workload can be daunting sometimes, and it was especially this way in my earlier years at this school. Having a way to mitigate this stress would be useful.
 
-10. Meal plans: Sticking to healthy eating is easier when it feels fun, and I struggle to be consistent with meal planning unless I can make some kind of. Gamifying meal planning could make it engaging and social.
+10. Meal plans: I like to plan my meals and generally have a well-rounded diet. I also believe that sticking to healthy eating is easier when it feels fun, and I struggle to be consistent with meal planning unless I can make it more engaging.
 
 
 ### Most promising: 
+From the ten domains, I selected three that I found to be the most promising to me:
 
 1. **Drinking matcha**
-- Reasoning: Being able to sort and pick good places for matcha has always been one of my key interests. However, the trial-and-error process that can arise from this can lead to disappointment or wasted money. A tool that filters for matcha quality and highly-rated reviews could be useful for me as well as a growing community of enthusiasts.
+- Reasoning: Being able to sort and pick good places for matcha has always been one of my key interests. However, the trial-and-error process that can arise from this can lead to disappointment or wasted money. Having a tool that filters for matcha quality and highly-rated reviews, among other things, could be useful for me personally as well as an ever-growing community of enthusiasts, especially if it has a well-designed interface with lots of cool features.
 
 2. **Organizing and summarizing work items**
-- Reasoning: To reiterate, I produce a lot of work across classes, internships, and projects, but when it comes time to update relevant information on my resume or condense this information well, I often forget the details. General note-taking tools are open-ended and some project trackers may not include space for personal reflection. I think a system, especially some sort of gamified system, that helps me log accomplishments and produce usable summaries would make any future reviews less stressful and support my long-term career growth (as well as potential users).
+- Reasoning: To reiterate, I produce a lot of work across classes, internships, and projects, but when it comes time to update relevant information on my resume or condense this information well, I often forget the tiny details. General note-taking tools are a bit open-ended, and some project trackers may not include space for personal reflection. I think a system, especially some sort of gamified system, that helps me log accomplishments and produce usable summaries would make any future reviews less stressful and support my long-term career growth (as well as that of potential users).
 
-3. **Finding good picture spots**
-- Reasoning: Being artsy in photography can be difficult if the right places aren't advertised well to the people looking for them, and especially for those searching for spaces beyond the obvious tourist attractions. Current resources like blogs or Instagram are fragmented and do not allow for me to filter by vibe or style so an app for this would make it easier to discover unique spots and therefore appeal to hobbyists.
+3. **Finding good or niche picture spots**
+- Reasoning: Being artsy in photography can be difficult if the right places aren't advertised well to the people looking for them, and especially for those searching for spaces beyond the obvious tourist attractions. Current resources like blogs or Instagram are fragmented and do not allow for me to filter by vibe or style, so an app for this would make it easier to discover unique spots and therefore appeal to hobbyists, tourists, and more.
 
 
 ## Problems with Selected Domains
@@ -52,7 +55,7 @@
 
 - Turning raw notes into usable summaries: Even if notes exist, they're often unstructured and not review-ready. It would be helpful to have a way to make professional reviews from even miscellaneous information.
 
-3. **Finding good picture spots**
+3. **Finding good or niche picture spots**
 
 - Discovering aesthetic locations: When in a new city, it's hard to know where photogenic backdrops are for photos.
 
@@ -64,7 +67,7 @@
 ## Selected Problems
 1. **Choosing a good matcha place or brand**
 
-- This stands out because i'ss highly specific and underserved — Yelp or Google reviews don't focus on matcha in particular. A specialized solution would directly help enthusiasts like me, and could be widely used given the popularity of the drink itself. 
+- This stands out because it's highly specific and underserved — Yelp or Google reviews don't focus on matcha in particular. A specialized solution would directly help enthusiasts like me, and could be widely used given the popularity of the drink itself. 
 
 2. **Keeping track of accomplishments for work reviews**
 
@@ -80,21 +83,23 @@
 
 - **Consolidation across tools (work items)**: This would require heavy integrations with APIs like Notion, Slack, or Google Docs. That's technically challenging and outside scope for this project, even if it's a real pain point.
 
+- **Turning raw notes into usable summaries**: Similarly, while converting unstructured notes into clean summaries is useful, many existing tools may already address this well (like Notion AI). I believe the challenge here is less about lack of tools and more about personal workflow discipline, which is why I did not choose this problem in particular.
+
 - **Avoiding overcrowded spots**: Crowdedness is subjective and hard to measure accurately. It could depend on time of day, weather, or personal tolerance, so it's not a stable feature to design around.
 
-- **Matching photo style with location**: This is compelling, but harder to implement since "style" is a fuzzy and personal dimension. Without robust tagging or image recognition, it's more feasible as a filtering layer once a base dataset of locations exists.
+- **Matching photo style with location**: This is compelling, but harder to implement since "style" is a fuzzy and personal dimension. Without robust tagging or image recognition, it's more feasible as a filtering layer once a base dataset of locations exists. I think this could be an addition once the app, as intended, resolves the current selected problem.
 
 
 ## Stakeholders
 1. **Choosing a good matcha place**
 
-- Matcha enthusiasts (primary users): Want reliable quality recommendations.
+- Matcha enthusiasts (primary users): Want reliable/trustworthy quality recommendations that they can also share with others.
 
 - Cafe owners: Gain visibility if their product is highlighted as authentic/good.
 
 - Casual cafe-goers: Indirectly affected if a friend drags them to a matcha place.
 
-2. Keeping track of accomplishments
+2. **Keeping track of accomplishments**
 
 - Students/employees: Need to capture and later retrieve achievements.
 
@@ -102,9 +107,9 @@
 
 - Future self: Uses stored information for resumes, apps, or reflection.
 
-3. Discovering aesthetic locations
+3. **Discovering aesthetic locations**
 
-- Photographers (hobbyists/enthusiasts): Need curated location suggestions.
+- Photographers (hobbyists/enthusiasts/etc.): Need curated location suggestions.
 
 - Social media users/influencers: Want content that stands out or is not overused.
 
@@ -200,7 +205,7 @@ Limitations: Current tools help browse photos, but not actively discover or filt
 
 2. **Keeping track of accomplishments**
 
-- Quick entry logging: Add one-line notes tagged by project or skill.
+- Quick entry logging: Add one- or two-line notes tagged by project or skill.
 
 - Automated summaries: Weekly/monthly prompts generate concise review drafts.
 
