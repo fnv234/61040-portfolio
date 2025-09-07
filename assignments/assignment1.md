@@ -4,79 +4,89 @@
 ## Domains
 1. Fitness tracking: I come from a competitive sports background and love exercise. I often go to the gym and like analyzing performance data to optimize workouts.
 
-2. City exploration: I love trying new neighborhoods, food spots, and hidden gems around Boston, but it’s easy to miss things or fall into routines.
+2. City exploration: I love trying new neighborhoods, food spots, and hidden gems around Boston, but it's easy to miss things or fall into routines. I think having a city exploration app where you can unlock places, place stickers and photos on a pin for other areas you've visited, and more could be fun.
 
 3. Visiting cafes and other food places: I enjoy checking out new cafes with friends. The challenge is deciding where to go as a group, since people have different tastes and budgets.
 
-4. Writing poetry: I like expressing myself through poetry, but I don’t always keep my writing organized or revisit/edit past work.
+4. Writing poetry: I like expressing myself through poetry, but I don't always keep my writing organized or revisit/edit past work. I also love receiving snippets or phrases to inspire my writing process, which I thought could be a good area to explore for this project.
 
-5. Taking vitamins or medicine / healthcare: Remembering to take supplements or medicine daily can be hard, especially when traveling or busy.
+5. Choosing date ideas or locations:  
 
-6. Organizing and summarizing work items: I generate a lot of work at school and internships (projects, notes, tasks), but struggle to capture what I’ve accomplished in a form that’s useful later for resumes or reviews.
+6. Organizing and summarizing work items: I generate a lot of work at school and internships (projects, notes, tasks), but struggle to capture what I've accomplished in a form that's streamlined and very useful later for resumes or reviews. Being able to understand and succinctly explain work that you've done is also crucial in the workplace, which makes this domain relevant to everyone.
 
-7. Finding good picture spots: I love photography and exploring, but it’s hard to know where the best aesthetic spots are, especially in a new city.
+7. Finding good picture spots: I love photography and exploring, but it's hard to know where the best aesthetic spots are, especially in a new city. Social media can help fill in some of the blanks, but some areas recommended solely by influencers can be underwhelming or overcrowded.
 
-8. Drinking matcha: I love matcha and like discovering high-quality cafes that serve it, but the quality varies widely and reviews don’t always help.
+8. Drinking matcha: As someone who cannot drink coffee, I love matcha for its health benefits and its caffeine content. I like discovering high-quality cafes that serve it, but the quality varies widely and reviews don't always help.
 
-9. Picking classes: At MIT, there are so many good course options. Balancing requirements, interest, and workload can be overwhelming.
+9. Picking classes: At MIT, there are so many good course options. Balancing requirements, interest, and workload can be daunting, especially in earlier years being at this school.
 
-10. Gamified meal plans: Sticking to healthy eating is easier when it feels fun. Gamifying meal planning could make it engaging and social.
+10. Meal plans: Sticking to healthy eating is easier when it feels fun, and I struggle to be consistent with meal planning unless I can make some kind of. Gamifying meal planning could make it engaging and social.
+
 
 ### Most promising: 
 
-1. Drinking matcha
-2. Organizing and summarizing work items
-3. Finding good picture spots
+1. **Drinking matcha**
+- Reasoning: Being able to sort and pick good places for matcha has always been one of my key interests. However, the trial-and-error process that can arise from this can lead to disappointment or wasted money. A tool that filters for matcha quality and highly-rated reviews could be useful for me as well as a growing community of enthusiasts.
+
+2. **Organizing and summarizing work items**
+- Reasoning: To reiterate, I produce a lot of work across classes, internships, and projects, but when it comes time to update relevant information on my resume or condense this information well, I often forget the details. General note-taking tools are open-ended and some project trackers may not include space for personal reflection. I think a system, especially some sort of gamified system, that helps me log accomplishments and produce usable summaries would make any future reviews less stressful and support my long-term career growth (as well as potential users).
+
+3. **Finding good picture spots**
+- Reasoning: Being artsy in photography can be difficult if the right places aren't advertised well to the people looking for them, and especially for those searching for spaces beyond the obvious tourist attractions. Current resources like blogs or Instagram are fragmented and do not allow for me to filter by vibe or style so an app for this would make it easier to discover unique spots and therefore appeal to hobbyists.
+
 
 ## Problems with Selected Domains
-1. Drinking matcha
+1. **Drinking matcha**
 
-- Choosing a good matcha place: Many cafes serve matcha, but quality varies (sweetness, grade, preparation). General reviews don’t capture this, so it’s trial-and-error.
+- Choosing a good matcha place: Many cafes serve matcha, but quality varies (sweetness, grade, preparation, and more). Oftentimes, social media can overemphasize the quality or taste of the matcha which makes it hard to rely on these perspectives to find a genuinely good matcha place.
 
-- Finding creative variations: Hard to know where to get interesting options (e.g., matcha lattes with oat milk, sparkling matcha).
+- Finding creative variations: It is hard to know exactly where to get interesting matcha flavor options (e.g., white peach mango matcha lattes with oat milk, sparkling matcha lemonades, etc.). Once again, social media may have some inspiration but these can be in multiple different, potentially disconnected sources.
 
-- Tracking personal favorites: After trying different cafes, it's easy to forget which places had the best drinks.
+- Tracking and ranking personal favorites: After trying different cafes, it's easy to forget which places had the best drinks, especially if you have to search through your phone for specific photos to remember them or do not have dedicated notes for ranking them.
 
-2. Organizing and summarizing work items
+2. **Organizing and summarizing work items**
 
-- Keeping track of accomplishments for reviews: Students/employees forget smaller wins unless they log them consistently.
+- Keeping track of accomplishments for reviews: Students and employees alike could forget smaller wins that are useful in advancing their career unless they log them consistently.
 
-- Consolidating across tools: Work gets scattered across Notion, Google Docs, Slack, etc., making summaries tedious.
+- Consolidating across tools: Work gets scattered across Notion, Google Docs, Slack, etc., making summaries tedious. If there were one platform for all, it would be much simpler to consolidate this information.
 
-- Turning raw notes into usable summaries: Even if notes exist, they’re often unstructured and not review-ready.
+- Turning raw notes into usable summaries: Even if notes exist, they're often unstructured and not review-ready. It would be helpful to have a way to make professional reviews from even miscellaneous information.
 
-3. Finding good picture spots
+3. **Finding good picture spots**
 
-- Discovering aesthetic locations: When in a new city, it’s hard to know where photogenic backdrops are.
+- Discovering aesthetic locations: When in a new city, it's hard to know where photogenic backdrops are for photos.
 
-- Avoiding overcrowded "Instagram spots" if desired: Popular photo places highly featured on social media may be too busy or overdone.
+- Avoiding overcrowded "Instagram spots" if desired: Popular photo places highly featured on social media may be too busy or overdone. It would be helpful to have a way to indicate this on a map or something.
 
 - Matching photo style with location: Different people want different vibes (street art vs. skyline vs. cozy cafe).
 
 
 ## Selected Problems
-1. Choosing a good matcha place
+1. **Choosing a good matcha place or brand**
 
-- This stands out because it’s highly specific and underserved — Yelp/Google reviews don’t focus on matcha. A specialized solution would directly help enthusiasts like me.
+- This stands out because i'ss highly specific and underserved — Yelp or Google reviews don't focus on matcha in particular. A specialized solution would directly help enthusiasts like me, and could be widely used given the popularity of the drink itself. 
 
-2. Keeping track of accomplishments for reviews
+2. **Keeping track of accomplishments for work reviews**
 
-- This is high-value because it solves a recurring professional pain point (internships, jobs, applications). It also has a clear audience and workflow impact.
+- This is high-value because it solves a recurring professional pain point (internships, jobs, applications). It also has a clear audience and workflow impact, which makes it significant.
 
-3. Discovering aesthetic locations for photography
+3. **Discovering aesthetic locations for photography**
 
-- People love sharing unique pictures, especially on social media. Current tools (Instagram geotags, Google Maps) aren’t optimized for finding spots — they’re more about browsing or luck.
+- People love sharing unique pictures, especially on social media. Current tools (Instagram geotags, Google Maps) are not necessarily optimized for finding spots, and they're more about browsing or luck in stumbling across the best places.
 
 ### Excluded Problems:
 
-- Matcha variations/tracking favorites: lower priority; could be features rather than standalone problems.
+- **Matcha variations, tracking favorites**: These are interesting but secondary compared to simply *finding a good place*. They could be added later as extra features once a solid review or discovery system exists.
 
-- Consolidation across tools: technically harder, might require deep integrations.
+- **Consolidation across tools (work items)**: This would require heavy integrations with APIs like Notion, Slack, or Google Docs. That's technically challenging and outside scope for this project, even if it's a real pain point.
 
-- Avoiding overcrowded spots: subjective and harder to measure reliably.
+- **Avoiding overcrowded spots**: Crowdedness is subjective and hard to measure accurately. It could depend on time of day, weather, or personal tolerance, so it's not a stable feature to design around.
+
+- **Matching photo style with location**: This is compelling, but harder to implement since "style" is a fuzzy and personal dimension. Without robust tagging or image recognition, it's more feasible as a filtering layer once a base dataset of locations exists.
+
 
 ## Stakeholders
-1. Choosing a good matcha place
+1. **Choosing a good matcha place**
 
 - Matcha enthusiasts (primary users): Want reliable quality recommendations.
 
@@ -101,68 +111,94 @@
 - Local businesses/tourism boards: Benefit if their location gets tagged in photos.
 
 ## Evidence
-1. Choosing a good matcha place
-[Finding good quality matcha](https://www.reddit.com/r/tea/comments/1h5qfp1/recommendations_on_where_i_can_buy_good_quality/) --> Shows that people often turn to forums to ask where they can find high-quality matcha, which highlights how hard it is to judge quality from standard reviews.
+
+1. **Choosing a good matcha place or brand**
+[Reddit thread: where to buy good quality matcha](https://www.reddit.com/r/tea/comments/1h5qfp1/recommendations_on_where_i_can_buy_good_quality/) --> Shows that people often turn to communities to ask for guidance, which highlights how hard it is to judge quality from standard reviews.
+
 [Matcha buying guide](https://healthyhappylife.com/matcha-green-tea-brand-reviews-buying/) --> A detailed review of matcha powders demonstrates how many factors (origin, grade, flavor, price) affect quality, and that specialized information is necessary for good decisions.
-[Best matcha powder](https://www.foodandwine.com/best-matcha-powder-8695612) --> Mainstream food media provides curated lists, but they focus on products to buy online, not cafes to visit, leaving a gap for in-person cafe recommendations.
 
-Key takeaway: There’s strong interest in quality evaluation, but most resources are for buying matcha powder, not finding good drinks locally (or at least not in one place). That suggests a niche where an app could provide unique value.
+[Best matcha powder](https://www.foodandwine.com/best-matcha-powder-8695612) --> Mainstream food media provides curated lists, but they focus on products to buy online, not cafes to visit, leaving a gap for in-person cafe recommendations (in addition to brand recommendations).
 
-Comparables:
+[Reddit thread: where to find the best matcha latte in Boston](https://www.reddit.com/r/boston/comments/uug25r/where_can_i_find_the_best_iced_matcha_latte_in/) --> Local users crowdsource cafe recommendations, which shows demand for a more structured platform.
 
-Yelp/Google Reviews - Widely used for cafes, but reviews are generic and rarely mention matcha-specific details (sweetness, grade).
+[Huntington News: rating matcha lattes around Boston](https://huntnewsnu.com/85143/lifestyle/column-the-greener-the-better-rating-matcha-lattes-around-boston/) --> Student journalists have created taste tests, proving that people care enough to compare cafes head-to-head.  
 
-Instagram food posts - Sometimes highlight drinks visually, but don’t reliably reflect taste or authenticity.
+[Spoon University: best 5 matcha spots in Boston](https://spoonuniversity.com/school/bu/the-best-5-matcha-spots-in-boston/) --> Short listicles exist, but are limited in scope and don't scale to different cities or tastes.  
 
-Tea blogs — Provide detailed matcha breakdowns, but focus on at-home brewing, not local cafes.
+[Wildcat Tribune: best local matcha places](https://thewildcattribune.com/20382/ae/the-best-local-matcha-places/) --> Even high school/college outlets rank matcha, showing broad cultural engagement with the drink.
+
+[Reddit thread: r/MatchaEverything](https://www.reddit.com/r/MatchaEverything/wiki/vendors/) --> Community attempts to aggregate vendor info, but focuses more on powders than cafes.  
+
+[The Cornell Sun: Ranking All the Matcha Tea Lattes in Town](https://www.cornellsun.com/article/2019/05/is-it-a-match-a-made-in-heaven-ranking-all-the-matcha-tea-lattes-in-town) --> Another student-run review demonstrates grassroots demand for structured evaluations.  
+
+[Buzzfeed: I Tried Matcha Lattes From 5 Popular Coffee Chains — Here's My Honest Ranking](https://www.buzzfeed.com/dannicaramirez/best-iced-matcha-latte-ranking) --> National outlets test chains, showing mainstream interest, but results aren't local or quality-focused.  
+
+
+Key takeaway: There's strong interest in quality evaluation, but most resources are scattered, and it is time-consuming to sort through all information available about brands and places. That suggests a niche where an app could provide unique value.
 
 Limitations: No existing platform offers matcha-specific, structured reviews for in-person cafes, despite rising interest.
 
-2. Keeping track of accomplishments
+2. **Keeping track of accomplishments**
 [Reddit career question - how people track accomplishments](https://www.reddit.com/r/cscareerquestions/comments/11cnnd0/how_do_you_guys_track_accomplishments/) --> Many professionals admit they forget to track their wins and seek advice on tools or methods, proving this is a widespread career challenge.
+
 [Advice for creating accomplishment tracker](https://provansuccess.com/accomplishment-tracker/) --> Coaches explicitly recommend structured tracking to avoid scrambling at review time, validating that this is a known best practice.
+
 [Indeed - how to track accomplishments guide](https://www.indeed.com/career-advice/career-development/how-to-track-accomplishments) --> Career site guides workers on different ways to log achievements (journals, spreadsheets, etc.), but all methods require discipline and aren’t automated.
+
+[Career Services blog at UPenn: How to track accomplishments](https://careerservices.upenn.edu/blog/2025/01/23/how-and-why-to-track-accomplishments-at-work-internship/) --> Universities encourage students to log accomplishments early, underlining educational demand.  
+
+[Blog: 6 ways to track your accomplishments](https://www.inhersight.com/blog/insight-commentary/ways-to-track-your-accomplishments) --> Outlines multiple methods, but none are automated or dynamic. 
+
+[LinkedIn advice on tracking progress](https://www.linkedin.com/advice/0/how-can-you-track-your-progress-accomplishments-mbboe) --> Professionals actively seek advice on LinkedIn, showing this is a career-wide concern.  
+
+[How to write accomplishment statements](https://www.indeed.com/career-advice/resumes-cover-letters/accomplishment-statements-examples) --> Demonstrates how structured tracking helps translate achievements into job-ready language.  
+
+[Quora: question on good apps for tracking time and accomplishments](https://www.quora.com/What-are-some-good-apps-for-tracking-time-and-accomplishments) -->  Users explicitly search for tools, revealing demand not met by mainstream apps.  
+
+[Excel Accomplishment Tracker (paid tool)](https://www.quora.com/What-are-some-good-apps-for-tracking-time-and-accomplishments) --> Paid templates show people are willing to invest in solutions, but they lack broader adoption.  
+
+[Excel spreadsheet templates for tracking tasks and time](https://www.projectmanager.com/blog/tracking-excel-spreadsheets) -->  Spreadsheet templates exist, but they are price-restricted and uninspiring.
+
 
 Key takeaway: People know they should track accomplishments, but common methods are either ad hoc or burdensome. There’s authentic demand for a lighter, structured tool.
 
-Comparables
-
-Notion/Evernote — Powerful note-taking apps, but too general-purpose and require users to design their own structure.
-
-Google Docs/Sheets — Easy logging, but not integrated into workflows and lack automation.
-
-Project management tools (Asana, Trello) — Track tasks, but not optimized for summarizing accomplishments for reviews or resumes.
-
 Limitations: Existing tools are either too broad or too task-focused; none specialize in helping users turn daily work into review-ready summaries.
 
-3. Discovering aesthetic locations
+3. **Discovering aesthetic locations**
 [Reddit post asking about photography spots in Boston](https://www.reddit.com/r/boston/comments/12ci519/photography_spots_in_boston/) --> Users actively ask communities for suggestions, showing unmet demand for centralized resources on photogenic spots.
+
 [12 most photographic places in Boston](https://shannonshipman.com/the-12-most-photographic-places-in-boston/) --> Travel bloggers fill the gap by listing photo-worthy locations, but these are static and don’t let users search/filter by style.
+
 [Top 15 most instagrammable places in Boston](https://www.meetboston.com/blog/post/top-15-instagrammable-locations-in-boston/) --> Tourism boards promote photogenic destinations, but they highlight the same few iconic spots, ignoring smaller hidden gems.
 
-Key takeaway: Current resources are fragmented, static, and biased toward popular tourist locations. This leaves room for a dynamic, community-driven discovery tool tailored to photographers.
+[How to Use Instagram and Pinterest to Find Awesome Hidden Travel Spots](https://rapidweblaunch.com/blog/instagram-pinterest-find-hidden-travel-spots) --> Suggests social media is a workaround, but unstructured and hard to filter.  
 
-Comparables
+[How do I find photo shoot locations for my blog?](https://www.emmasedition.com/2019/11/find-photo-shoot-locations.html) --> Bloggers share personal hacks, showing lack of standardized discovery tools.  
 
-Instagram geotags — Allow browsing photos by location, but discovery is limited and unstructured (no filtering by vibe, time of day, etc.).
+[43 Top Instagram Spots in New York to Visit in 2024](https://inbeat.agency/blog/best-instagram-spots-new-york) --> Listicles for major cities exist, but again focus on mainstream/tourist attractions.  
 
-Google Maps “Popular with photographers” tags — Helpful, but generic and often highlight tourist-heavy areas.
+[How should I go about finding awesome locations for landscape shots?](https://photo.stackexchange.com/questions/4418/how-should-i-go-about-finding-awesome-locations-for-landscape-shots) --> Photographers actively seek peer guidance online.  
 
-Trover (discontinued photo app) — Tried to crowdsource photo locations but shut down, suggesting execution challenges (though the demand still exists).
+[ELLE's 30 Places to Instagram in 2023](https://www.elle.com/culture/travel-food/a27561982/best-instagram-spots/) --> Lifestyle media confirms widespread cultural interest in photogenic spots. 
 
-Limitationss: Current tools help browse photos, but not actively discover or filter for unique photography spots that fit a user’s aesthetic style.
+[LA's Most Instagrammable Spots, from a Local](https://www.thebrassy.com/blog/las-most-instagrammable-spots) --> Local bloggers fill the gap for specific cities. 
 
+[Best Places to Take Pictures in Boston](https://www.andretorophotography.com/blog/best-places-to-take-pictures-in-boston) --> Professional photographers publish guides, reinforcing demand across skill levels.  
+
+Key takeaway: Current resources are fragmented, static, and biased toward popular tourist locations. This leaves room for a dynamic and community-driven discovery tool tailored to photographers.
+
+Limitations: Current tools help browse photos, but not actively discover or filter for unique photography spots that fit a user's aesthetic style.
 
 ## Features of a Solution
-1. Choosing a good matcha place
+1. **Choosing a good matcha place**
 
 - Matcha-specific reviews: Rate sweetness, grade, preparation quality.
 
-- Cafe map + filters: Find nearby spots by type (authentic, creative, aesthetic).
+- Cafe map + filters: Find nearby spots by type (authentic, creative, aesthetic). 
 
-- Personal log: Save and rate drinks you’ve tried for future reference.
+- Personal log: Save and rate drinks you've tried for future reference.
 
-2. Keeping track of accomplishments
+2. **Keeping track of accomplishments**
 
 - Quick entry logging: Add one-line notes tagged by project or skill.
 
@@ -170,7 +206,7 @@ Limitationss: Current tools help browse photos, but not actively discover or fil
 
 - Export to resume/LinkedIn: Convert notes into bullet points formatted for professional use.
 
-3. Discovering aesthetic locations
+3. **Discovering aesthetic locations**
 
 - Photo map: Interactive map of spots with crowdsourced photo examples.
 
