@@ -138,7 +138,6 @@ From the ten domains, I selected three that I found to be the most promising to 
 
 [Buzzfeed: I Tried Matcha Lattes From 5 Popular Coffee Chains — Here's My Honest Ranking](https://www.buzzfeed.com/dannicaramirez/best-iced-matcha-latte-ranking) --> National outlets test chains, showing mainstream interest, but results aren't local or quality-focused.  
 
-
 Key takeaway: There's strong interest in quality evaluation, but most resources are scattered, and it is time-consuming to sort through all information available about brands and places. That suggests a niche where an app could provide unique value.
 
 Limitations: No existing platform offers matcha-specific, structured reviews for in-person cafes, despite rising interest.
@@ -148,7 +147,7 @@ Limitations: No existing platform offers matcha-specific, structured reviews for
 
 [Advice for creating accomplishment tracker](https://provansuccess.com/accomplishment-tracker/) --> Coaches explicitly recommend structured tracking to avoid scrambling at review time, validating that this is a known best practice.
 
-[Indeed - how to track accomplishments guide](https://www.indeed.com/career-advice/career-development/how-to-track-accomplishments) --> Career site guides workers on different ways to log achievements (journals, spreadsheets, etc.), but all methods require discipline and aren’t automated.
+[Indeed - how to track accomplishments guide](https://www.indeed.com/career-advice/career-development/how-to-track-accomplishments) --> Career site guides workers on different ways to log achievements (journals, spreadsheets, etc.), but all methods require discipline and aren't automated.
 
 [Career Services blog at UPenn: How to track accomplishments](https://careerservices.upenn.edu/blog/2025/01/23/how-and-why-to-track-accomplishments-at-work-internship/) --> Universities encourage students to log accomplishments early, underlining educational demand.  
 
@@ -165,14 +164,14 @@ Limitations: No existing platform offers matcha-specific, structured reviews for
 [Excel spreadsheet templates for tracking tasks and time](https://www.projectmanager.com/blog/tracking-excel-spreadsheets) -->  Spreadsheet templates exist, but they are price-restricted and uninspiring.
 
 
-Key takeaway: People know they should track accomplishments, but common methods are either ad hoc or burdensome. There’s authentic demand for a lighter, structured tool.
+Key takeaway: People know they should track accomplishments, but common methods are either ad hoc or burdensome. There's authentic demand for a lighter, structured tool.
 
 Limitations: Existing tools are either too broad or too task-focused; none specialize in helping users turn daily work into review-ready summaries.
 
 3. **Discovering aesthetic locations**
 [Reddit post asking about photography spots in Boston](https://www.reddit.com/r/boston/comments/12ci519/photography_spots_in_boston/) --> Users actively ask communities for suggestions, showing unmet demand for centralized resources on photogenic spots.
 
-[12 most photographic places in Boston](https://shannonshipman.com/the-12-most-photographic-places-in-boston/) --> Travel bloggers fill the gap by listing photo-worthy locations, but these are static and don’t let users search/filter by style.
+[12 most photographic places in Boston](https://shannonshipman.com/the-12-most-photographic-places-in-boston/) --> Travel bloggers fill the gap by listing photo-worthy locations, but these are static and don't let users search/filter by style.
 
 [Top 15 most instagrammable places in Boston](https://www.meetboston.com/blog/post/top-15-instagrammable-locations-in-boston/) --> Tourism boards promote photogenic destinations, but they highlight the same few iconic spots, ignoring smaller hidden gems.
 
@@ -205,11 +204,11 @@ Limitations: Current tools help browse photos, but not actively discover or filt
 
 2. **Keeping track of accomplishments**
 
-- Quick entry logging: Add one- or two-line notes tagged by project or skill.
+- Quick entry logging: Add one- or two-line notes tagged by project, for example, or other tags.
 
-- Automated summaries: Weekly/monthly prompts generate concise review drafts.
+- Automated summaries: Weekly/monthly prompts generate concise review drafts from the entries logged.
 
-- Export to resume/LinkedIn: Convert notes into bullet points formatted for professional use.
+- Export to resume/LinkedIn: Convert entries or summaries into bullet points formatted for professional use.
 
 3. **Discovering aesthetic locations**
 
