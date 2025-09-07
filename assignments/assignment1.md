@@ -118,6 +118,7 @@ From the ten domains, I selected three that I found to be the most promising to 
 ## Evidence
 
 1. **Choosing a good matcha place or brand**
+
 [Reddit thread: where to buy good quality matcha](https://www.reddit.com/r/tea/comments/1h5qfp1/recommendations_on_where_i_can_buy_good_quality/) --> Shows that people often turn to communities to ask for guidance, which highlights how hard it is to judge quality from standard reviews.
 
 [Matcha buying guide](https://healthyhappylife.com/matcha-green-tea-brand-reviews-buying/) --> A detailed review of matcha powders demonstrates how many factors (origin, grade, flavor, price) affect quality, and that specialized information is necessary for good decisions.
@@ -143,6 +144,7 @@ Key takeaway: There's strong interest in quality evaluation, but most resources 
 Limitations: No existing platform offers matcha-specific, structured reviews for in-person cafes, despite rising interest.
 
 2. **Keeping track of accomplishments**
+
 [Reddit career question - how people track accomplishments](https://www.reddit.com/r/cscareerquestions/comments/11cnnd0/how_do_you_guys_track_accomplishments/) --> Many professionals admit they forget to track their wins and seek advice on tools or methods, proving this is a widespread career challenge.
 
 [Advice for creating accomplishment tracker](https://provansuccess.com/accomplishment-tracker/) --> Coaches explicitly recommend structured tracking to avoid scrambling at review time, validating that this is a known best practice.
@@ -169,6 +171,7 @@ Key takeaway: People know they should track accomplishments, but common methods 
 Limitations: Existing tools are either too broad or too task-focused; none specialize in helping users turn daily work into review-ready summaries.
 
 3. **Discovering aesthetic locations**
+
 [Reddit post asking about photography spots in Boston](https://www.reddit.com/r/boston/comments/12ci519/photography_spots_in_boston/) --> Users actively ask communities for suggestions, showing unmet demand for centralized resources on photogenic spots.
 
 [12 most photographic places in Boston](https://shannonshipman.com/the-12-most-photographic-places-in-boston/) --> Travel bloggers fill the gap by listing photo-worthy locations, but these are static and don't let users search/filter by style.
