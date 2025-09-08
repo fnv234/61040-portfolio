@@ -215,8 +215,8 @@ Limitations: Current tools help browse photos, but not actively discover or filt
 
 3. **Discovering aesthetic locations**
 
-- Photo map: Interactive map of spots with crowdsourced photo examples.
+- Living photo map: Interactive map of spots with crowdsourced photo examples (each pin/location has a mini-gallery). Users can swipe through examples uploaded by others to anticipate what the location looks like.
 
-- Style filters: Search by the general aesthetic of the place you desire (urban, natural, etc.).
+- Style explorer: Search by the general aesthetic of the place you desire (urban, natural, etc.) through tuning your tags.
 
-- Crowd-level indicator: User-submitted data to flag whether spots are usually busy to determine if this would indeed be a viable place for photography.
+- Crowd pulse: User-submitted data to flag whether spots are usually busy (like a crowdedness meter) to determine if this would indeed be a viable place for photography (red if crowded, green if quiet, etc.).
