@@ -12,7 +12,7 @@ The ten domains I identified for this project are the following:
 
 4. Writing poetry: I like expressing myself through poetry, but I don't always keep my writing organized, revisit/edit past work, or have inspiration for new poems often. I love seeing snippets or phrases to inspire my writing process, which I thought could be a good area to explore for this project.
 
-5. Choosing unique date ideas/locations: For me, coming up with fun and meaningful date ideas can be surprisingly hard. Even in a city with supposedly many options, it's easy to fall into repetitive routines (like always going to dinner or coffee). I think it would be interesting to have a tool that can help generate and organize creative date ideas/locations to make planning feel more exciting.
+5. Choosing unique date ideas/locations: For me, coming up with fun and meaningful date ideas can be surprisingly hard. Even in a city with supposedly many options, it's easy to fall into repetitive routines (like always going to dinner or coffee shops). I think it would be interesting to have a tool that can help generate and organize creative date ideas/locations to make planning feel more exciting.
 
 6. Organizing and summarizing work items: I generate a lot of work at school and internships (projects, notes, tasks), but struggle to capture what I've accomplished in a form that's streamlined and very useful later for resumes or reviews. Being able to understand and succinctly explain work that you've done is also crucial in the workplace, which makes this domain relevant to everyone.
 
