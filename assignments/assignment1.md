@@ -41,27 +41,27 @@ From the ten domains, I selected three that I found to be the most promising to 
 ## Problems with Selected Domains
 1. **Drinking matcha**
 
-- Choosing a good matcha place: Many cafes serve matcha, but quality varies (sweetness, grade, preparation, and more). Oftentimes, social media can overemphasize the quality or taste of the matcha which makes it hard to rely on these perspectives to find a genuinely good matcha place.
+- Choosing a high quality matcha place: Many cafes serve matcha, but quality varies (sweetness, grade, preparation, and more). Oftentimes, social media can overemphasize the quality or taste of the matcha which makes it hard to rely on these perspectives alone to find a genuinely good matcha place.
 
 - Finding creative variations: It is hard to know exactly where to get interesting matcha flavor options (e.g., white peach mango matcha lattes with oat milk, sparkling matcha lemonades, etc.). Once again, social media may have some inspiration but these can be in multiple different, potentially disconnected sources.
 
-- Tracking and ranking personal favorites: After trying different cafes, it's easy to forget which places had the best drinks, especially if you have to search through your phone for specific photos to remember them or do not have dedicated notes for ranking them.
+- Tracking and ranking personal favorites: After trying different cafes, it's easy to forget which places had the best drinks, especially if you have to search through your phone for specific photos (which may be from different days or times) to remember them or do not have dedicated notes for ranking them. 
 
 2. **Organizing and summarizing work items**
 
-- Keeping track of accomplishments for reviews: Students and employees alike could forget smaller wins that are useful in advancing their career unless they log them consistently.
+- Keeping track of accomplishments for reviews: Students and employees alike, including me, could forget smaller wins that are useful in advancing their career unless they log them consistently. This is a problem if some pertinent information is lost which could affect their likelihood of receiving a raise, job, etc.
 
-- Consolidating across tools: Work gets scattered across Notion, Google Docs, Slack, etc., making summaries tedious. If there were one platform for all, it would be much simpler to consolidate this information.
+- Consolidating across tools: Work gets scattered across Notion, Google Docs, Slack, and more, making summaries tedious. If there were one platform for all, it would be much simpler to consolidate this information for users.
 
-- Turning raw notes into usable summaries: Even if notes exist, they're often unstructured and not review-ready. It would be helpful to have a way to make professional reviews from even miscellaneous information.
+- Turning raw notes into usable summaries: Even if notes exist, they're often unstructured and not review-ready. It would be helpful to be able to make professional reviews or outlines for these reviews from even miscellaneous information.
 
 3. **Finding good or niche picture spots**
 
-- Discovering aesthetic locations: When in a new city, it's hard to know where photogenic backdrops are for photos.
+- Discovering aesthetic locations: When I'm in a new city, it's often hard to figure out where the most photogenic backdrops are. While some online resources may highlight a few obvious attractions, they may skip over the full range of unique spots. Relying on social media means sifting through scattered posts or reels, which can be time-consuming. Creating a better way to discover aesthetic locations would make exploration and photography feel more intentional and rewarding.
 
-- Avoiding overcrowded "Instagram spots" if desired: Popular photo places highly featured on social media may be too busy or overdone. It would be helpful to have a way to indicate this on a map or something.
+- Avoiding overcrowded "Instagram spots" if desired: Many popular photo spots become overcrowded once they gain traction on Instagram or TikTok. While some people may not mind the crowds, others (like me) find these types of locations less enjoyable for photos. Having a tool that surfaces less-crowded alternatives (or indicates peak crowding times for these Instagrammable locations) could help photographers choose places.
 
-- Matching photo style with location: Different people want different vibes (street art vs. skyline vs. cozy cafe).
+- Matching desired photo style with location: Different people want different vibes (street art vs. skyline vs. cozy cafe). It is currently hard to filter by personal or desired aesthetic, so finding the right sort of place per individual could be time intensive. Having an app to tag or categorize photo spots by style would make it easier to match a user to a location for the kind of photo they want to capture.
 
 
 ## Selected Problems
@@ -79,41 +79,41 @@ From the ten domains, I selected three that I found to be the most promising to 
 
 ### Excluded Problems:
 
-- **Matcha variations, tracking favorites**: These are interesting but secondary compared to simply *finding a good place*. They could be added later as extra features once a solid review or discovery system exists.
+- **Matcha variations & tracking favorites**: These are interesting but secondary compared to simply *finding a good place*. They could be added later as extra features once a solid review or discovery system exists.
 
-- **Consolidation across tools (work items)**: This would require heavy integrations with APIs like Notion, Slack, or Google Docs. That's technically challenging and outside scope for this project, even if it's a real pain point.
+- **Consolidating across tools**: This would require heavy integrations with APIs like Notion, Slack, or Google Docs. That is technically challenging and potentially outside scope for this project, even if it is a real pain point for users and people in general.
 
 - **Turning raw notes into usable summaries**: Similarly, while converting unstructured notes into clean summaries is useful, many existing tools may already address this well (like Notion AI). I believe the challenge here is less about lack of tools and more about personal workflow discipline, which is why I did not choose this problem in particular.
 
-- **Avoiding overcrowded spots**: Crowdedness is subjective and hard to measure accurately. It could depend on time of day, weather, or personal tolerance, so it's not a stable feature to design around.
+- **Avoiding overcrowded spots**: Crowdedness is subjective and hard to measure accurately. It could depend on time of day, weather, or personal tolerance, so it's not a stable problem to design around for the purposes of this project.
 
-- **Matching photo style with location**: This is compelling, but harder to implement since "style" is a fuzzy and personal dimension. Without robust tagging or image recognition, it's more feasible as a filtering layer once a base dataset of locations exists. I think this could be an addition once the app, as intended, resolves the current selected problem.
+- **Matching desired photo style with location**: This is compelling, but might be harder to implement from the get-go since "style" is a fuzzy and personal dimension. Without robust tagging or image recognition, it's more feasible as a filtering layer once a base dataset of locations exists. I think this could be a valuable added feature once the app, as intended, resolves the current selected problem.
 
 
 ## Stakeholders
 1. **Choosing a good matcha place**
 
-- Matcha enthusiasts (primary users): Want reliable/trustworthy quality recommendations that they can also share with others.
+- Matcha enthusiasts (intended as the primary users): Want reliable/trustworthy quality recommendations that they can also share with others. These are people who actively seek high-quality matcha and care about differences in grade, preparation, and authenticity, and don't want to waste money on poor quality drinks. Solving this problem would save them time and frustration, while also letting them build social credibility by introducing friends to genuinely good places.
 
-- Cafe owners: Gain visibility if their product is highlighted as authentic/good.
+- Cafe owners: Gain visibility if their product is highlighted as authentic/good. If their shop is recognized as serving authentic or high-quality matcha, they could see a direct increase in foot traffic. This kind of business advantage matters especially for smaller or niche cafes that may not have the marketing budget to compete with big chains.
 
-- Casual cafe-goers: Indirectly affected if a friend drags them to a matcha place.
+- Casual cafe-goers: Indirectly affected if a friend drags them to a matcha place. Even if they don't care as much about authenticity themselves, their experience is better if the place is genuinely good and not disappointing, making them indirect beneficiaries of a better recommendation system.
 
 2. **Keeping track of accomplishments**
 
-- Students/employees: Need to capture and later retrieve achievements.
+- Students and employees: Need to capture and later retrieve achievements. Solving this issue would let them capture accomplishments in the moment and later organize them. For example, in group settings, like project teams, being able to track individual contributions fairly is also valuable.
 
-- Managers/professors: Benefit from structured summaries when reviewing or recommending.
+- Managers and professors: Benefit from structured summaries when reviewing or recommending. When evaluating people for promotions or grading, having structured accomplishment records makes their job easier and reduces bias. For managers, being able to showcase their team's wins clearly also reflects well on their leadership.
 
-- Future self: Uses stored information for resumes, apps, or reflection.
+- Mentors or career advisors: Can provide more tailored guidance. They often want to help students/employees articulate their strengths but sometimes their advice is only as good as the information they're given. If accomplishments and work are tracked and organized by the students/employees, then mentors can provide more impactful guidance to their mentees.
 
 3. **Discovering aesthetic locations**
 
-- Photographers (hobbyists/enthusiasts/etc.): Need curated location suggestions.
+- Photographers (hobbyists/enthusiasts/etc.): Need curated location suggestions. By eliminating the need to sift through blog posts or social media, solving this issue saves them time and allows them to focus on the creative side of photography.
 
-- Social media users/influencers: Want content that stands out or is not overused.
+- Social media users and influencers: Want content that stands out or is not overused. Being able to discover less obvious or niche locations gives them a competitive edge in a very saturated entertainment market.
 
-- Local businesses/tourism boards: Benefit if their location gets tagged in photos.
+- Local businesses and tourism boards: Benefit if their location gets tagged in photos. For them, solving this issue can help drive visitors to more diverse or lesser-known places like theirs, which is a way to spread economic benefits beyond just the most famous sites.
 
 ## Evidence
 
@@ -199,24 +199,24 @@ Limitations: Current tools help browse photos, but not actively discover or filt
 ## Features of a Solution
 1. **Choosing a good matcha place**
 
-- Matcha-specific reviews: Rate sweetness, grade, preparation quality.
+- Matcha-specific reviews: Rate sweetness, grade, preparation quality, or more per matcha place.
 
-- Cafe map + filters: Find nearby spots by type (authentic, creative, aesthetic). 
+- Cafe map + filters: Find nearby spots by type (authentic, creative, etc.) as rated by a majority of users, 
 
-- Personal log: Save and rate drinks you've tried for future reference.
+- Personal library/log: Save and rate drinks you've tried for future reference.
 
 2. **Keeping track of accomplishments**
 
-- Quick entry logging: Add one- or two-line notes tagged by project, for example, or other tags.
+- Quick entry logging (like Jira tickets but for everyone): Add one- or two-line notes tagged by project, for example, or other tags.
 
 - Automated summaries: Weekly/monthly prompts generate concise review drafts from the entries logged.
 
-- Export to resume/LinkedIn: Convert entries or summaries into bullet points formatted for professional use.
+- Export to resume/LinkedIn bullet points: Convert entries or summaries into bullet points formatted for professional use.
 
 3. **Discovering aesthetic locations**
 
 - Photo map: Interactive map of spots with crowdsourced photo examples.
 
-- Style filters: Search by vibe (urban, nature, cozy, landmark).
+- Style filters: Search by the general aesthetic of the place you desire (urban, natural, etc.).
 
-- Crowd-level indicator: User-submitted data to flag whether spots are usually busy.
+- Crowd-level indicator: User-submitted data to flag whether spots are usually busy to determine if this would indeed be a viable place for photography.
