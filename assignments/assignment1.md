@@ -194,7 +194,7 @@ Limitations: Existing tools are either too broad or too task-focused; none speci
 
 Key takeaway: Current resources are fragmented, static, and biased toward popular tourist locations. This leaves room for a dynamic and community-driven discovery tool tailored to photographers.
 
-Limitations: Current tools help browse photos, but not actively discover or filter for unique photography spots that fit a user's aesthetic style.
+Limitations: Current tools help browse photos, but not actively discover or filter for unique photography spots (that are personalized to the user).
 
 ## Features of a Solution
 1. **Choosing a good matcha place**
