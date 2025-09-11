@@ -37,13 +37,18 @@ a set of Users with
     an authenticated Flag
 
 ### 2.
+
 **actions**
     register (username: String, password: String): (user: User)
+
         **requires** username not already registered
+
         **effects** creates a new user with this username and password and returns the user
 
     authenticate (username: String, password: String): (user: User)
+
         **requires** user already exists with this username and password matches
+
         **effects** returns the user
 
 
@@ -53,15 +58,21 @@ An essential invariant is that each username is unique and maps to only 1 user. 
 ### 4.
 **actions**
     register (username: String, password: String): (user: User, token: Token)
+
         **requires** username not already registered
+
         **effects** creates a new user with this username and password, authenticated = False, and returns the user as well as a secret token (to be sent by email)
 
     confirm (username: String, token: Token)
+
         **requires** user already exists with this username and the correct token
+
         **effects** set authenticated = True
 
     authenticate (username: String, password: String): (user: User)
+    
         **requires** user already exists with this username, authenticated = True, and password matches
+
         **effects** returns the user
 
 
@@ -78,15 +89,21 @@ a set of Users with
 
 **actions**
   createToken (user: User): (token: Token)
+
     **requires** user already exists
+
     **effects** generate a new token for this user and return the token
 
   removeToken (user: User, token: Token)
+
     **requires** this token already exists for this user
+
     **effects** remove the token
 
   authenticate (username: String, token: Token): (user: User)
+
     **requires** this token already exists for this user
+
     **effects** return the user
 
 This differs from PasswordAuthentication because tokens can be individually removed/revoked but passwords cannot. Also, instead of having one unique password for a user, they may have multiple different tokens. 
@@ -108,11 +125,15 @@ To improve the GitHub documentation, we could explicitly say that tokens are rem
 
 **actions**
   truncate (owner: User, targetURL: String): (suffix: String)
+
     **requires** targetURL is a valid URL
+
     **effects** generate a unique suffix and mapping
 
   customTruncate (owner: User, targetURL: String, suffix: String)
+
     **requires** suffix not already used and targetURL is a valid URL
+
     **effects** create mapping with given suffix
 
 
@@ -133,11 +154,15 @@ To improve the GitHub documentation, we could explicitly say that tokens are rem
 
 **actions**
   reserve (room: Room, startTime: Time, endTime: Time, user: User): (res: Reservation)
+
     **requires** room exists and the time period (startTime to endTime) does not overlap an existing reservation
+
     **effects** create reservation
 
   cancel (res: Reservation, user: User)
+
     **requires** res exists and user is owner of the res
+
     **effects** remove reservation
 
 ### Time-Based One-Time Password (TOTP)
@@ -152,9 +177,13 @@ To improve the GitHub documentation, we could explicitly say that tokens are rem
 
 **actions**
   register (username: String, password: String): (user: User, secretKey: String)
+
     **requires** username not already registered
+
     **effects** create new user with secretKey generated and shared with authenticator app
 
   authenticate (username: String, password: String, code: String): (user: User)
+
     **requires** user exists, password matches, and code matches value computed from secretKey and current time
+    
     **effects** return user
