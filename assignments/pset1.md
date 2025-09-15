@@ -106,23 +106,29 @@ a set of Users with
     a username String
     a set of Tokens
 
+a set of Tokens with
+    a val String
+    an owner User
+
+
+
 **actions**
 
     createToken (user: User): (token: Token)
 
       **requires** user already exists
 
-      **effects** generate a new token for this user and return the token
+      **effects** generate a new token with a unique val for this user (associating it with the correct user by adding it to the set of tokens for this user), and return the token
 
     removeToken (user: User, token: Token)
 
       **requires** this token already exists for this user
 
-      **effects** remove the token
+      **effects** remove the token from the set of tokens associated with this user
 
     authenticate (username: String, token: Token): (user: User)
 
-      **requires** this token already exists for this user
+      **requires** there is a user such that user.username is username and this token also already exists for this user
 
       **effects** return the user
 
