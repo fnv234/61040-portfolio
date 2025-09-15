@@ -33,9 +33,9 @@ This is preferable to representing items with their names, descriptions, etc. si
 
 **state**
 
-a set of Users with 
-    a username String
-    a password String
+- a set of Users with 
+  - a username String
+  - a password String
 
 ### 2.
 
@@ -63,10 +63,10 @@ An essential invariant is that each username is unique and maps to only 1 user. 
 
 For the state, we add a flag as follows, such that it is now:
 
-a set of Users with 
-    a username String
-    a password String
-    an authenticated Flag
+- a set of Users with 
+  - a username String
+  - a password String
+  - an authenticated Flag
 
 
 **actions**
@@ -102,13 +102,13 @@ a set of Users with
 
 **state**
 
-a set of Users with
-    a username String
-    a set of Tokens
+- a set of Users with
+  - a username String
+  - a set of Tokens
 
-a set of Tokens with
-    a val String
-    an owner User
+- a set of Tokens with
+  - a val String
+  - an owner User
 
 
 
@@ -149,10 +149,10 @@ To improve the GitHub documentation, we could explicitly say that tokens are rem
 
 **state**
 
-  a set of Mappings with
-    a suffix String
-    a targetURL String
-    an owner User
+- a set of Mappings with
+  - a suffix String
+  - a targetURL String
+  - an owner User
 
 **actions**
 
@@ -178,15 +178,15 @@ To improve the GitHub documentation, we could explicitly say that tokens are rem
 
 **state**
 
-  a set of Rooms with
-    an identifier String
-    a set of Reservations
+- a set of Rooms with
+  - an identifier String
+  - a set of Reservations
 
-  a set of Reservations with
-    a room Room
-    a startTime Time
-    an endTime Time
-    an owner User
+- a set of Reservations with
+  - a room Room
+  - a startTime Time
+  - an endTime Time
+  - an owner User
 
 **actions**
 
@@ -211,10 +211,10 @@ To improve the GitHub documentation, we could explicitly say that tokens are rem
 
 **state**
 
-  a set of Users with
-    a username String
-    a password String
-    a secretKey String
+- a set of Users with
+  - a username String
+  - a password String
+  - a secretKey String
 
 **actions**
 
