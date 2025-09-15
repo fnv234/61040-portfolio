@@ -184,13 +184,13 @@ To improve the GitHub documentation, we could explicitly say that tokens are rem
 
 - a set of Reservations with
   - a room Room
-  - a startTime Time
-  - an endTime Time
+  - a startTime Datetime
+  - an endTime Datetime
   - an owner User
 
 **actions**
 
-    reserve (room: Room, startTime: Time, endTime: Time, user: User): (res: Reservation)
+    reserve (room: Room, startTime: Datetime, endTime: Datetime, user: User): (res: Reservation)
 
       **requires** room exists and the time period (startTime to endTime) does not overlap an existing reservation
 
