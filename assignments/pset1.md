@@ -36,7 +36,6 @@ This is preferable to representing items with their names, descriptions, etc. si
 a set of Users with 
     a username String
     a password String
-    an authenticated Flag
 
 ### 2.
 
@@ -59,6 +58,16 @@ a set of Users with
 An essential invariant is that each username is unique and maps to only 1 user. This is preserved through the register action which checks for duplicated (and no other action mutates usernames).
 
 ### 4.
+
+**state**
+
+For the state, we add a flag as follows, such that it is now:
+
+a set of Users with 
+    a username String
+    a password String
+    an authenticated Flag
+
 
 **actions**
 
