@@ -19,7 +19,7 @@ In practice, this would likely not matter too much since registries are often as
 Two common queries would be:
 
 1. (Registry owner) Which items have been purchased and by whom?
-2. (Giver) Which items are still available for purchase and how much?
+2. (Giver) Which items are still available for purchase and how many?
 
 ### 6. Hiding purchases
 To augment the concept specification to support hiding purchases, we could add a simple flag per registry, like purchaseVisibility. The registry owner could choose to toggle this flag on or off upon closing their registry so that when the flag is set to False, they cannot see purchases and maintain the element of surprise.
@@ -132,7 +132,7 @@ For the state, we add a flag as follows, such that it is now:
 
       **effects** return the user
 
-This differs from PasswordAuthentication because tokens can be individually removed/revoked but passwords cannot. Also, instead of having one unique password for a user, they may have multiple different tokens. 
+This differs from PasswordAuthentication because tokens can be individually removed/revoked but passwords cannot. Also, instead of having one password for a user, they may have multiple different tokens. 
 
 To improve the GitHub documentation, we could explicitly say that tokens are removable and machine-created alternatives to passwords to emphasize that they provide a level deeper of control rather than saying that we treat them exactly like passwords.
 
@@ -170,6 +170,7 @@ To improve the GitHub documentation, we could explicitly say that tokens are rem
 
 
 ### Conference Room Booking
+
 **concept** RoomBooking
 
 **purpose** manage reservations for conference rooms
@@ -203,6 +204,7 @@ To improve the GitHub documentation, we could explicitly say that tokens are rem
       **effects** remove reservation
 
 ### Time-Based One-Time Password (TOTP)
+
 **concept** TOTP
 
 **purpose** provide stronger authentication by requiring a short-lived token in addition to a password
@@ -214,18 +216,26 @@ To improve the GitHub documentation, we could explicitly say that tokens are rem
 - a set of Users with
   - a username String
   - a password String
-  - a secretKey String
+  - a secretKey String?
 
 **actions**
 
-    register (username: String, password: String): (user: User, secretKey: String)
+    createUser(username: String, password: String): (user: User)
 
-      **requires** username not already registered
+      **requires** username not already registered (i.e., username is unique)
 
-      **effects** create new user with secretKey generated and shared with authenticator app
+      **effects** create a new user (with this username and password), setting user's secretKey to null and then adding to Users, and return the new user
+
+    register (username: String, password: String): (secretKey: String)
+
+      **requires** user exists in Users with this username and password
+
+      **effects** generate new secretKey for user and return secretKey (to be used in the authenticator app)
 
     authenticate (username: String, password: String, code: String): (user: User)
 
-      **requires** user exists, password matches, and code matches value computed from secretKey and current time
+      **requires** user exists with this username and password in Users, and code matches value computed from secretKey and current time
       
       **effects** return user
+
+**notes**: I added createUser in addition to the other actions so that the concept covers both initial account creation and TOTP enrollment (so that we can handle setup for a new user).
