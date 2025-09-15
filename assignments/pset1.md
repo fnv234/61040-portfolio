@@ -30,7 +30,9 @@ This is preferable to representing items with their names, descriptions, etc. si
 ## Exercise 2
 
 ### 1. 
+
 **state**
+
 a set of Users with 
     a username String
     a password String
@@ -39,6 +41,7 @@ a set of Users with
 ### 2.
 
 **actions**
+
     register (username: String, password: String): (user: User)
 
         **requires** username not already registered
@@ -56,7 +59,9 @@ a set of Users with
 An essential invariant is that each username is unique and maps to only 1 user. This is preserved through the register action which checks for duplicated (and no other action mutates usernames).
 
 ### 4.
+
 **actions**
+
     register (username: String, password: String): (user: User, token: Token)
 
         **requires** username not already registered
@@ -79,32 +84,38 @@ An essential invariant is that each username is unique and maps to only 1 user. 
 ## Exercise 3
 
 ### PersonalAccessToken
+
 **concept** PersonalAccessToken
+
 **purpose** permit users to authenticate to services without exposing their password
+
 **principle** a user generates a random token string which can be used instead of a password to authenticate the user, and these tokens can be individually revoked without affecting other tokens or the password
+
 **state**
+
 a set of Users with
     a username String
     a set of Tokens
 
 **actions**
-  createToken (user: User): (token: Token)
 
-    **requires** user already exists
+    createToken (user: User): (token: Token)
 
-    **effects** generate a new token for this user and return the token
+      **requires** user already exists
 
-  removeToken (user: User, token: Token)
+      **effects** generate a new token for this user and return the token
 
-    **requires** this token already exists for this user
+    removeToken (user: User, token: Token)
 
-    **effects** remove the token
+      **requires** this token already exists for this user
 
-  authenticate (username: String, token: Token): (user: User)
+      **effects** remove the token
 
-    **requires** this token already exists for this user
+    authenticate (username: String, token: Token): (user: User)
 
-    **effects** return the user
+      **requires** this token already exists for this user
+
+      **effects** return the user
 
 This differs from PasswordAuthentication because tokens can be individually removed/revoked but passwords cannot. Also, instead of having one unique password for a user, they may have multiple different tokens. 
 
@@ -114,34 +125,44 @@ To improve the GitHub documentation, we could explicitly say that tokens are rem
 ## Exercise 4
 
 ### URL Shortener
+
 **concept** URLShortener
+
 **purpose** provide short and unique URLs that redirect to longer target URLs
+
 **principle** users submit long URLs, receive a truncated suffix, and then visiting the short URL redirects to the long one
+
 **state**
+
   a set of Mappings with
     a suffix String
     a targetURL String
     an owner User
 
 **actions**
-  truncate (owner: User, targetURL: String): (suffix: String)
 
-    **requires** targetURL is a valid URL
+    truncate (owner: User, targetURL: String): (suffix: String)
 
-    **effects** generate a unique suffix and mapping
+      **requires** targetURL is a valid URL
 
-  customTruncate (owner: User, targetURL: String, suffix: String)
+      **effects** generate a unique suffix and mapping
 
-    **requires** suffix not already used and targetURL is a valid URL
+    customTruncate (owner: User, targetURL: String, suffix: String)
 
-    **effects** create mapping with given suffix
+      **requires** suffix not already used and targetURL is a valid URL
+
+      **effects** create mapping with given suffix
 
 
 ### Conference Room Booking
 **concept** RoomBooking
+
 **purpose** manage reservations for conference rooms
+
 **principle** users can reserve a room for a specific time or time period if it is available, and these reservations prevent conflicting bookings
+
 **state**
+
   a set of Rooms with
     an identifier String
     a set of Reservations
@@ -153,37 +174,43 @@ To improve the GitHub documentation, we could explicitly say that tokens are rem
     an owner User
 
 **actions**
-  reserve (room: Room, startTime: Time, endTime: Time, user: User): (res: Reservation)
 
-    **requires** room exists and the time period (startTime to endTime) does not overlap an existing reservation
+    reserve (room: Room, startTime: Time, endTime: Time, user: User): (res: Reservation)
 
-    **effects** create reservation
+      **requires** room exists and the time period (startTime to endTime) does not overlap an existing reservation
 
-  cancel (res: Reservation, user: User)
+      **effects** create reservation
 
-    **requires** res exists and user is owner of the res
+    cancel (res: Reservation, user: User)
 
-    **effects** remove reservation
+      **requires** res exists and user is owner of the res
+
+      **effects** remove reservation
 
 ### Time-Based One-Time Password (TOTP)
 **concept** TOTP
+
 **purpose** provide stronger authentication by requiring a short-lived token in addition to a password
+
 **principle** each user shares a secret key with the server and the user's authenticator app generates time-based codes from this secret; authentication requires both the password and the current code
+
 **state**
+
   a set of Users with
     a username String
     a password String
     a secretKey String
 
 **actions**
-  register (username: String, password: String): (user: User, secretKey: String)
 
-    **requires** username not already registered
+    register (username: String, password: String): (user: User, secretKey: String)
 
-    **effects** create new user with secretKey generated and shared with authenticator app
+      **requires** username not already registered
 
-  authenticate (username: String, password: String, code: String): (user: User)
+      **effects** create new user with secretKey generated and shared with authenticator app
 
-    **requires** user exists, password matches, and code matches value computed from secretKey and current time
-    
-    **effects** return user
+    authenticate (username: String, password: String, code: String): (user: User)
+
+      **requires** user exists, password matches, and code matches value computed from secretKey and current time
+      
+      **effects** return user
