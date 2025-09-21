@@ -75,30 +75,30 @@
 
 1. Assign ownership of a shortened URL when it is registered
 
-    sync assignOwnership
-        when UrlShortening.register(user, targetUrl, shortUrlBase) : (shortUrl)
-        then Ownership.assignOwnership(user, shortUrl)
+        sync assignOwnership
+            when UrlShortening.register(user, targetUrl, shortUrlBase) : (shortUrl)
+            then Ownership.assignOwnership(user, shortUrl)
 
     - This should run immediately after a short URL is created
     - This associates the URL with the user who created it so that later analytics can be gated by ownership
 
 2. Increment analytics access count on lookup
 
-    sync incrementCount 
-        when UrlShortening.lookup(shortUrl)
-        then Analytics.accessed(shortUrl)
+        sync incrementCount 
+            when UrlShortening.lookup(shortUrl)
+            then Analytics.accessed(shortUrl)
 
     - Every time a shortened URL is looked up, the count is incremented or initialized to 1 if it is the first time accessing
     - This only records traffic so there is no need for user context
 
 3. Viewing analytics if ownership verified only
 
-    sync viewAnalytics
-        when 
-            Request.viewAnalytics(user, shortUrl)
-            Ownership.verifyOwnership(user, shortUrl) : (verified)
-        then
-            Analytics.getCount(shortUrl)
+        sync viewAnalytics
+            when 
+                Request.viewAnalytics(user, shortUrl)
+                Ownership.verifyOwnership(user, shortUrl) : (verified)
+            then
+                Analytics.getCount(shortUrl)
 
     - This is triggered when a user requests analytics for a given URL and uses verifyOwnership to ensure that they are authorized (then calls getCount if they are indeed verified)
     - Sync doesn't proceed if the verification fails
