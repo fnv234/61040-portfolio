@@ -21,7 +21,7 @@
 5. We should have a sync to remove a URL shortening from the system so that it does not resolve when a resource expires. This sync would look like:
 
         sync expire
-            when ExpiringResource.expireResource(): (resource: Resource)
+            when ExpiringResource.expireResource(): (resource)
             then UrlShortening.delete(shortUrl: resource)
 
 
