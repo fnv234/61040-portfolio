@@ -109,9 +109,9 @@
 
 2. To use the "word as nonce" strategy, we would modify NonceGeneration such that it supports an available word list mode where generate chooses an unused word or word combination. This also shows that my solution is modular since the changes only occur in NonceGeneration.
 
-3. To include the targetUrl in analytics, we would need to add to the Analytics state to store pairs of (shortUrl, targetUrl). Then, we can add a new action getCountByUrl(targetUrl: String) : (count: Number) which gets the access count for the targetUrl across all shortUrls pointing to it. This also shows my solution is modular because it only adds a new state and actions to Analytics and does not affect other concepts.
+3. This feature would be an undesirable addition. Its purpose conflicts with the intent of analytics as a concept, which is to understand how short links are used and not to monitor activity at the target URLs themselves. Also, it could raise privacy issues: for instance, different owners of shortened URLs that resolve to the same target URL might gain visibility into each other's traffic data.
 
-4. To generate short URLs that are not easily guessed, we can modify NonceGeneration to produce cryptographically secure random strings (i.e., longer or less predictable). If we want to be able to generate these secure URLs as well as more easily guessable URLs, we would just add an action called generateSecureUrl(context: Context) : (nonce: String) which has this alternative generation strategy. This again shows my solution is modular since this change is isolated to NonceGeneration. 
+4. This feature would be an undesirable addition. While it would be possible to modify NonceGeneration to produce cryptographically secure random strings, doing so would make the resulting shortened URLs much harder to guess or remember. This nullifies the core purpose of a shortened URL, which is to provide a shorter/simpler or more memorable way to link.
 
 5. This feature would be an undesirable addition. Adding support for reporting analytics to non-registered creators would pose potential security risks (if tokens that are used to access the analytics are leaked or guessed) and weakens access control. Since analytics are a value-add feature, it seems reasonable to require users to register to keep the system simpler and more secure. 
 
