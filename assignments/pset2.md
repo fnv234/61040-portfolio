@@ -96,9 +96,9 @@
         sync viewAnalytics
             when 
                 Request.viewAnalytics(user, shortUrl)
-                Ownership.verifyOwnership(user, shortUrl) : (verified)
+                Ownership.verifyOwnership(user, shortUrl) : (verified: True)
             then
-                Analytics.getCount(shortUrl)
+                Analytics.getCount(shortUrl): (count)
 
     - This is triggered when a user requests analytics for a given URL and uses verifyOwnership to ensure that they are authorized (then calls getCount if they are indeed verified)
     - Sync doesn't proceed if the verification fails
