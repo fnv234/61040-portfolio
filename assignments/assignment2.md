@@ -57,188 +57,222 @@ matchamatch combines place discovery with personal experience tracking for match
 
 ## Concept Design
 
+**concept** PlaceDirectory
 
-this is going to be edited
-### Place
- 
-  **concept** Place
+**purpose** represent and manage all known matcha-serving locations
 
-  **purpose** represent a physical cafe/location that serves matcha
+**principle** places store structured metadata and can be saved, logged, or claimed by users  
 
-  **principle** places store structured metadata and can be updated or claimed
+**state**  
 
-  **state**
-  
-    a Map from place ID to  
-        - name String  
-        - address String  
-        - city String  
-        - lat Float  
-        - lon Float  
-        - tags List of String  
-        - hours String  
-        - source_url String  
-        - verified Bool  
-        - sample_rating_score Float  
-        - sample_review_count Int  
-        - notes String
-
-  **actions**
-
-    view (placeId: ID): (place: Place)  
-      **requires** place exists  
-      **effect** returns the place metadata
-
-    update_meta (placeId: ID, fields: Map)  
-      **requires** place exists  
-      **effect** updates metadata fields  
-
-    claim_by_owner (placeId: ID, userId: ID)  
-      **requires** place is unclaimed  
-      **effect** links owner to place  
-
-    flag_for_review (placeId: ID, userId: ID)  
-      **requires** place exists  
-      **effect** marks place for admin verification  
-
-    aggregate_rating_update (placeId: ID)  
-      **requires** place exists  
-      **effect** recalculates average rating from reviews  
+    a set of Places with
+        a placeId PlaceId
+        a name String
+        an address String
+        coordinates (Float, Float)
+        preparationStyles set String
+        priceRange String
+        hours lone String
+        photos set URL
 
 
-### Review[Target=Place]
+**actions**  
 
-  **concept** Review [Target=Place]
+    create_place(name: String, address: String, coords: (Float, Float), styles: set String): PlaceId
+        **requires** name and address are non-empty
+        **effects** add new Place with these attributes
 
-  **purpose** structured user-generated review about a Place  
+    find_nearby(coords: (Float, Float), radius: Float): set PlaceId
+        **requires** radius > 0
+        **effects** return {p in placeId | distance(p.coordinates, coords) ≤ radius}
 
-  **principle** reviews are unique per user–place pair and contribute to aggregate scores  
+    search_by_name(query: String): set PlaceId
+        **effects** return {p in placeId | query in p.name}
 
-  **state**
-  
-    a Map from review ID to  
-      - targetPlaceId Place ID  
-      - userId User ID  
-      - grade Int  
-      - sweetness Int  
-      - froth Int  
-      - preparation String  
-      - notes String  
-      - images List of URL  
-      - timestamp DateTime  
+    get_details(p: PlaceId): PlaceInfo
+        **requires** p in placeId
+        **effects** return all information for place p
 
-  **actions**  
-
-    create (targetPlaceId: ID, userId: ID, attrs: Map): (reviewId: ID)  
-      **requires** target place exists and no prior review by user  
-      **effect** creates new review linked to the place  
-
-    edit (reviewId: ID, updates: Map)  
-      **requires** review exists and belongs to user  
-      **effect** updates fields of review  
-
-    delete (reviewId: ID)  
-      **requires** review exists and belongs to user  
-      **effect** deletes review  
-
-    compute_partial_score (reviewId: ID): (score: Float)  
-      **requires** review exists  
-      **effect** computes score contribution for aggregation  
+    filter_by_style(style: String): set PlaceId
+        **effects** return {p in placeId | style in p.preparationStyles}
 
 
-### UserProfile
 
-  **concept** UserProfile
+**concept** UserDirectory
 
-  **purpose** store user identity and preferences  
+**purpose** represent app users with identity, preferences, and saved places
 
-  **principle** users manage their own saved places, reviews, and settings  
+**principle** each user maintains independent saved places and preferences 
 
-  **state**
+**state**  
 
-    a Map from user ID to  
-      - displayName String  
-      - savedPlaces List of Place IDs  
-      - preferences Map  
-      - claimedPlaces List of Place IDs  
+    a set of Users with
+        a userId UserId
+        a displayName String
+        an email String
+        preferences Map[String, String]
+        savedPlaces set PlaceId
 
-  **actions**
+**actions**  
 
-    save_place (userId: ID, placeId: ID)  
-      **requires** place exists and user exists  
-      **effect** adds place to user's saved list  
+    register_user(id: UserId, display: String, emailAddr: String): UserId
+      **requires** id not in userId and display, emailAddr are non-empty
+      **effects** add new User with these attributes
 
-    unsave_place (userId: ID, placeId: ID)  
-      **requires** place exists and user exists  
-      **effect** removes place from user's saved list  
+    save_place(u: UserId, p: PlaceId)
+      **requires** u in userId and p in placeId
+      **effects** add p to u.savedPlaces
 
-    export_saved (userId: ID): (summaryDoc: File)  
-      **requires** user exists  
-      **effect** generates exportable summary of saved places  
+    unsave_place(u: UserId, p: PlaceId)
+      **requires** u in userId and p in u.savedPlaces
+      **effects** remove p from u.savedPlaces
 
-## Essential Synchronizations
+    update_preferences(u: UserId, prefs: Map[String, String])
+      **requires** u in userId
+      **effects** set u.preferences = prefs
 
-- **Review - Place aggregate update**
-  - When a new `Review` is created, the associated `Place` must update its `sample_rating_score` and `sample_review_count`.
-  - When a `Review` is deleted or edited, the corresponding `Place` must recalculate its aggregate rating.
-
-  In other words:  
-    when `Review.create(targetPlaceId, userId, attrs)`  
-    then `Place.aggregate_rating_update(targetPlaceId)`
-
-    when `Review.edit(reviewId, updates)`  
-    then `Place.aggregate_rating_update(targetPlaceId)`
-
-    when `Review.delete(reviewId)`  
-    then `Place.aggregate_rating_update(targetPlaceId)`
+    get_saved_places(u: UserId): set PlaceId
+      **requires** u in userId
+      **effects** return u.savedPlaces
 
 
-- **UserProfile - Place claim verification**
-  - When a user claims a place, the system should update the place's claimed status and optionally flag it for admin verification.
+**concept** ExperienceLog[UserId, PlaceId]  
 
-  In other words:  
-    when `UserProfile.claim_place(userId, placeId)`  
-    then `Place.claim_by_owner(placeId, userId)`  
-    then optionally `Place.flag_for_review(placeId, userId)`
+**purpose** capture a user's personal experience at a place  
 
-- **UserProfile - Personal saved places sync**
-  - When a user saves a place, that place should appear in their personal saved list and optionally be reflected on a map overlay.
+**principle** each log entry captures one user's assessment of one place at a specific time; logs are structured, personal reviews (not just free text), stored privately (or optionally shared in an expanded scope of the app)
 
-  In other words:  
-    when `UserProfile.save_place(userId, placeId)`  
-    then update`UserProfile.savedPlaces(userId)`  
-    then optionally update a potential map layer (for saved)
+**state**  
 
+    a set of Logs with
+        a logId LogId
+        a user User
+        an item PlaceId
+        a timestamp DateTime
+        a rating Integer
+        sweetness Integer
+        strength Integer
+        notes String?
+        photo URL?
+
+
+**actions**  
+
+    create_log(u: UserId, i: PlaceId, rating: Integer): LogId
+        **requires** rating is in the range [1,5] inclusive
+        **effects** add new Log with these attributes and timestamp = now()
+
+    update_log(log: LogId, rating: Integer, sweet: Integer, str: Integer, prep: String, note: String)
+        **requires** log in logId and rating is in the range [1,5] inclusive
+        **effects** update attributes of log
+
+    get_user_logs(u: UserId): set LogId
+        **effects** return {log in logId | log.user = u}
+
+    get_item_logs(u: UserId, i: PlaceId): set LogId
+        **effects** return {log in logId | log.user = u and log.item = i}
+
+    delete_log(log: LogId)
+        **requires** log in logId
+        **effects** remove log from logId
+
+
+
+**concept** PersonalCollection[UserId, PlaceId]
+
+**purpose** organize and filter a user's saved and tried places.  
+
+**principle** provide unified view of a user's personal data with filtering capabilities
+
+**state**  
+
+    a set of Collections with
+      a user UserId
+      saved set PlaceId
+      tried set PlaceId
+
+
+**actions**  
+
+    add_to_saved(u: UserId, i: PlaceId)
+      **requires** u and i exist
+      **effects** add i to Collections[u].saved
+
+    remove_from_saved(u: UserId, i: PlaceId)
+      **requires** i in Collections[u].saved
+      **effects** remove i from Collections[u].saved
+
+    add_to_tried(u: UserId, i: PlaceId)
+      **requires** u and i exist and ExperienceLog.get_user_logs(u) contains a log for i
+      **effects** add i to Collections[u].tried
+
+    get_saved(u: UserId): set PlaceId
+      **effects** return Collections[u].saved
+
+    get_tried(u: UserId): set PlaceId
+      **effects** return Collections[u].tried
+
+    filter_by_rating(u: UserId, minRating: Integer): set PlaceId
+      **requires** minRating is within the range [1,5] inclusive
+      **effects** return places from Collections[u].tried with average rating ≥ minRating
+
+
+
+### Synchronizations
+
+when PlaceDirectory.find_nearby(coords, radius) returns places
+  then UserDirectory.save_place(u: UserId, placeId: PlaceId) can reference discovered places
+
+when UserDirectory.save_place(u: UserId, placeId: PlaceId)
+  then PersonalCollection.add_to_saved(u: UserId, placeId: PlaceId)
+
+when ExperienceLog.create_log(u: UserId, placeId: PlaceId, rating: Integer)
+  then PersonalCollection.add_to_tried(u: UserId, placeId: PlaceId)
+
+when PersonalCollection.filter_by_rating(u: UserId, minRating: Integer)
+  then use ExperienceLog.get_item_logs(u: UserId, placeId: PlaceId) for filtering
 
 ### Concept Roles in the App
 
-The app centers on **`Place`** as the anchor concept, representing matcha-serving locations or brands. **`Review`** contributes community insights tied to places and drives discovery through aggregate ratings. **`UserProfile`** provides identity, ownership, and personalization — managing saved places, preferences, and private tastings. **`LogEntry`** is the atomic data structure representing personal tasting experiences, while **`TastingLog`** aggregates these into summaries and insights.  
+The app centers on PlaceDirectory as the anchor concept, representing all known matcha-serving locations with their metadata for discovery and reference. ExperienceLog captures individual user experiences at places, providing the atomic structure for personal tasting records. User manages identity, saved places, and personal preferences while serving as the connection point for all user-generated content. PersonalCollection organizes and filters a user's saved and tried places.
 
-Generic type parameters are used transparently:  
-- In `Review<Target=Place>`, the `Target` is always instantiated as `Place`.  
-- References such as `user_id`, `place_id`, and `logEntryId` are foreign keys to the `UserProfile`, `Place`, and `LogEntry` maps respectively.  
+Generic type parameters are not used in this design — all concepts work directly with concrete types:
 
-Together, these concepts form a modular structure: **community-facing contributions** (reviews, claimed places) and **personal-facing records** (logs, summaries) are synchronized through shared identifiers, allowing both private journaling and public discovery to coexist in the same system. 
+- PlaceDirectory manages location data and metadata for all places and supports searching and filtering by style or proximity.
+
+- UserDirectory maintains saved places (referencing Place IDs) and preferences for users.
+
+- ExperienceLog links users to places through log entries containing ratings, attributes, notes, and timestamps.
+
+- PersonalCollection organizes a user's saved and tried places and supports filtering by rating.
+
+Together, these concepts form a coherent structure: PlaceDirectory provides discoverable locations, User manages personal identity and saved places, ExperienceLog captures detailed experiences, and PersonalCollection organizes and filters the user's activity. The synchronizations ensure that user actions (discovering places, saving places, logging experiences, updating preferences) update all relevant collections and personal views, creating a seamless discovery-to-memory workflow.
 
 ## UI Sketches
 
 See [here](./UI_sketches_assgn2/UI_sketches.pdf)
 
-## User Journey - meet Mia
+## User Journey - meet Emma
 
-Mia is a young professional who recently developed a love for matcha during her visits to local cafes. She often struggles to remember which cafes she's visited, how she liked their drinks, and where she might find her next great cup of matcha. Mia wants a way to track her experiences and discover new places without spending hours searching online.
+Emma is a graduate student who recently developed a love for matcha but struggles to find good places beyond the one cafe she knows. She wants to explore more options while avoiding disappointing experiences.
 
-1. Step 1 — Discovery
-One afternoon, Mia hears about matchamatch from a friend. She downloads it and opens the welcome screen (Wireframe 1). After quickly creating her account and setting her taste preferences with sliders (Wireframe 2), she lands on the Home/Map screen (Wireframe 3). The interactive map displays nearby cafes with tags like "ceremonial," "vegan-friendly," etc. Mia spots a new cafe that looks interesting.
+1. Step 1 — Discovery Need
+Emma opens matchamatch after a friend's recommendation. The onboarding explains how she can discover matcha places and track her experiences. She grants location access and sets her basic preferences for traits like sweetness and strength for her personal tracking. 
 
-2. Step 2 — Exploring a Place
-When Mia taps the cafe, the Place Detail screen opens (Wireframe 6). She sees the address, photos, and reviews with structured ratings for sweetness, strength, and more. Curious, she saves the cafe to her personal list with the "Save" button (UserProfile.save_place).
+2. Step 2 — Exploring Options
+On the Home/Discovery Map, Emma sees pins for 8 matcha places, including several she's never heard of. She can filter by specifics like distance from her location. Tapping on one shows details like hours, photos if available, and other details.
 
-3. Step 3 — Recording Her Experience
-A few days later, Mia visits the cafe and enjoys their ceremonial matcha. Afterward, she opens matchamatch, returns to the cafe's page, and selects "Add Review" (Wireframe 7). She fills in ratings for sweetness and strength, writes a note, and uploads a photo. When she submits (Review.create), the cafe's overall scores update (Place.aggregate_rating_update). The review also stays tied to the place in her Saved Places (Wireframe 5), making it easy to revisit later.
+3. Step 3 — Saving Interesting Places
+Emma finds 3 promising places and saves them to her personal collection for future visits. These saved places now appear highlighted on her map and in her "Saved Places" view.
 
-4. Step 4 — Reflection
-Later, Mia browses her Saved Places screen (Wireframe 5). She sees a summary of her favorite cafes and her own reviews for each one. Looking across them, she realizes she tends to prefer less-sweet matcha with a strong flavor.
+4. Step 4 — First Experience
+Emma visits one of her saved places and tries their ceremonial matcha. Afterward, she opens the app and logs her experience: 4-star rating, notes about the perfect froth and slightly sweet taste, plus a photo of the beautiful presentation.
 
-5. Final Outcome
-By combining discovery, reviews, and saving, matchamatch helps Mia keep track of her experiences and preferences without extra work. She no longer forgets which cafes she enjoyed, and she feels confident trying new spots while building a personal shortlist of favorites.
+5. Step 5 — Building Personal Collection
+Over three weeks, Emma visits 4 more places, logging each experience with ratings and detailed notes. Some are great discoveries (5 stars), others disappointing (2 stars). Her Personal Collection now shows both saved places for future visits and tried places with her personal ratings.
+
+6. Step 6 — Confident Decision Making
+When Emma's parents visit, she opens her Personal Collection, filters for 4+ star experiences, and confidently takes them to her highest-rated spot. She can explain exactly why it's special based on her logged notes about preparation style and taste.
+
+7. Final Outcome
+matchamatch solves both Emma's discovery problem (finding new places) and organization problem (remembering experiences). She can discover places on the map, save promising ones, and build a personal reference of her actual experiences - no complex algorithms needed, just discovery, saving, and memory tracking.
