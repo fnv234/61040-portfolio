@@ -57,6 +57,7 @@ matchamatch combines place discovery with personal experience tracking for match
 
 ## Concept Design
 
+1. 
 **concept** PlaceDirectory
 
 **purpose** represent and manage all known matcha-serving locations
@@ -97,7 +98,7 @@ matchamatch combines place discovery with personal experience tracking for match
         **effects** return {p in placeId | style in p.preparationStyles}
 
 
-
+2. 
 **concept** UserDirectory
 
 **purpose** represent app users with identity, preferences, and saved places
@@ -135,7 +136,7 @@ matchamatch combines place discovery with personal experience tracking for match
       **requires** u in userId
       **effects** return u.savedPlaces
 
-
+3. 
 **concept** ExperienceLog[UserId, PlaceId]  
 
 **purpose** capture a user's personal experience at a place  
@@ -177,7 +178,7 @@ matchamatch combines place discovery with personal experience tracking for match
         **effects** remove log from logId
 
 
-
+4. 
 **concept** PersonalCollection[UserId, PlaceId]
 
 **purpose** organize and filter a user's saved and tried places.  
@@ -216,27 +217,63 @@ matchamatch combines place discovery with personal experience tracking for match
       **requires** minRating is within the range [1,5] inclusive
       **effects** return places from Collections[u].tried with average rating ≥ minRating
 
+5. 
+**concept** RecommendationEngine
+
+**purpose** generate personalized suggestions for users, powering the "For You" section on the home screen
+
+**principle** suggestions are derived from user preferences, experience history, and place metadata; recommendations exclude places the user has already logged
+
+**state**
+
+    a set of Recommendations with
+        a user UserId
+        suggestions set PlaceId
+
+**actions**
+
+    generate_for_you(u: UserId): set PlaceId
+        **requires** u in userId
+        **effects** return {p in placeId | p not in PersonalCollection[u].tried}
+                ranked by match with u.preferences, saved/tried history, or global popularity
+
+    refresh_suggestions(u: UserId)
+        **requires** u in userId
+        **effects** update Recommendations[u].suggestions = generate_for_you(u)
 
 
 ### Synchronizations
 
-when PlaceDirectory.find_nearby(coords, radius) returns places
-  then UserDirectory.save_place(u: UserId, placeId: PlaceId) can reference discovered places
+        when PlaceDirectory.find_nearby(coords, radius) returns places
+            then UserDirectory.save_place(u: UserId, placeId: PlaceId) can reference discovered places
 
-when UserDirectory.save_place(u: UserId, placeId: PlaceId)
-  then PersonalCollection.add_to_saved(u: UserId, placeId: PlaceId)
+        when UserDirectory.save_place(u: UserId, placeId: PlaceId)
+            then PersonalCollection.add_to_saved(u: UserId, placeId: PlaceId)
+            then RecommendationEngine.refresh_suggestions(u)
 
-when ExperienceLog.create_log(u: UserId, placeId: PlaceId, rating: Integer)
-  then PersonalCollection.add_to_tried(u: UserId, placeId: PlaceId)
+        when UserDirectory.unsave_place(u: UserId, placeId: PlaceId)
+            then PersonalCollection.remove_from_saved(u: UserId, placeId: PlaceId)
+            then RecommendationEngine.refresh_suggestions(u)
 
-when PersonalCollection.filter_by_rating(u: UserId, minRating: Integer)
-  then use ExperienceLog.get_item_logs(u: UserId, placeId: PlaceId) for filtering
+        when UserDirectory.update_preferences(u: UserId, prefs)
+            then RecommendationEngine.refresh_suggestions(u)
+
+        when ExperienceLog.create_log(u: UserId, placeId: PlaceId, rating)
+            then PersonalCollection.add_to_tried(u: UserId, placeId: PlaceId)
+            then RecommendationEngine.refresh_suggestions(u)
+
+        when ExperienceLog.delete_log(logId) removes a user's record for a place
+            then PersonalCollection updates tried set accordingly
+            then RecommendationEngine.refresh_suggestions(u)
+
+        when PlaceDirectory.create_place(...) adds a new place
+            then RecommendationEngine.refresh_suggestions(all users)
 
 ### Concept Roles in the App
 
-The app centers on PlaceDirectory as the anchor concept, representing all known matcha-serving locations with their metadata for discovery and reference. ExperienceLog captures individual user experiences at places, providing the atomic structure for personal tasting records. User manages identity, saved places, and personal preferences while serving as the connection point for all user-generated content. PersonalCollection organizes and filters a user's saved and tried places.
+The app centers on PlaceDirectory as the anchor concept, representing all known matcha-serving locations with their metadata for discovery and reference. ExperienceLog captures individual user experiences at places, providing the atomic structure for personal tasting records. UserDirectory manages identity, saved places, and personal preferences while serving as the connection point for all user-generated content. PersonalCollection organizes and filters a user's saved and tried places. RecommendationEngine generates personalized suggestions for each user, surfacing them in the "For You" section by combining metadata, preferences, and logs.
 
-Generic type parameters are not used in this design — all concepts work directly with concrete types:
+Generic type parameters are not used in this design - all concepts work directly with concrete types:
 
 - PlaceDirectory manages location data and metadata for all places and supports searching and filtering by style or proximity.
 
@@ -246,7 +283,9 @@ Generic type parameters are not used in this design — all concepts work direct
 
 - PersonalCollection organizes a user's saved and tried places and supports filtering by rating.
 
-Together, these concepts form a coherent structure: PlaceDirectory provides discoverable locations, User manages personal identity and saved places, ExperienceLog captures detailed experiences, and PersonalCollection organizes and filters the user's activity. The synchronizations ensure that user actions (discovering places, saving places, logging experiences, updating preferences) update all relevant collections and personal views, creating a seamless discovery-to-memory workflow.
+- RecommendationEngine computes and maintains dynamic suggestions for users, updating whenever preferences, logs, or new places change.
+
+Together, these concepts form a coherent structure: PlaceDirectory provides discoverable locations, UserDirectory manages personal identity and saved places, ExperienceLog captures detailed experiences, PersonalCollection organizes and filters the user's activity, and RecommendationEngine personalizes future discovery. The synchronizations ensure that user actions (discovering places, saving places, logging experiences, updating preferences, or new places being added) consistently update collections, recommendations, and personal views — creating a seamless loop from discovery to memory to new discovery.
 
 ## UI Sketches
 
