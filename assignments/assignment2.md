@@ -221,35 +221,37 @@ Notes: the recommendation scoring here is simplified for this design phase.
 
 ### Synchronizations
 
-    sync SavedPlaceSync:
+    sync PlaceCreationSync:
         when PlaceDirectory.create_place(name, address, coords, styles) returns placeId
-        then UserDirectory.save_place(userId, placeId) can reference the new place
+        then placeId becomes available for UserDirectory.save_place(userId, placeId)
 
-    sync RecommendationRefreshSync:
+    sync SavedPlaceRecommendationSync:
         when UserDirectory.save_place(userId, placeId)
         then RecommendationEngine.refresh_recommendations(userId)
 
-    sync PreferenceUpdateSync:
+    sync PreferenceRecommendationSync:
         when UserDirectory.update_preferences(userId, prefs)
         then RecommendationEngine.refresh_recommendations(userId)
 
-    sync ExperienceUpdateSync:
+    sync ExperienceRecommendationSync:
         when ExperienceLog.create_log(userId, placeId, rating)
         then RecommendationEngine.refresh_recommendations(userId)
 
-    sync NewPlaceSync:
-        when PlaceDirectory.create_place(name, address, coords, styles) 
+    sync GlobalPlaceRecommendationSync:
+        when PlaceDirectory.create_place(name, address, coords, styles) adds new place
         then RecommendationEngine.refresh_recommendations(all users)
 
 ### Concept Roles in the App
 
-PlaceDirectory serves as the central repository of all matcha-serving locations, providing the foundation for discovery through location-based search, name search, and style filtering. UserDirectory manages user identity and personal data, including saved places (bookmarks for future visits) and preferences that inform recommendations.
+The app architecture centers on four independent concepts that together enable matcha discovery and personal experience tracking. PlaceDirectory functions as the foundational data layer, maintaining all known matcha-serving locations with searchable metadata including coordinates, preparation styles, and operational details. This concept supports the discovery workflow through location-based queries, name searches, and style filtering that populate the interactive map interface.
 
-ExperienceLog captures the core value proposition - detailed personal experiences at places that build into a searchable memory system. Each log contains structured ratings, taste attributes, notes, and photos that help users remember what made each place special or disappointing. The concept provides both individual experience lookup and aggregate functions like average ratings.
+UserDirectory manages user state including authentication, personal preferences, and bookmarked places. The concept maintains user-specific data independently while providing the saved places functionality that allows users to build curated lists of places to visit. The preferences system stores user taste profiles that inform personalized recommendations.
 
-RecommendationEngine maintains personalized suggestions for each user, caching computed recommendations until user behavior changes warrant a refresh. It operates by analyzing user preferences, saved places, and experience history to suggest relevant places they haven't tried yet. The cached approach provides consistent recommendations while being responsive to user actions.
+ExperienceLog implements the core value proposition by capturing structured personal assessments of visits to places. Each log entry records ratings, taste attributes, notes, and photos that transform ephemeral experiences into persistent, searchable memories. This concept enables users to build personal knowledge over time and make informed decisions about where to revisit or recommend to others.
 
-Together, these concepts create a discovery-to-memory cycle: PlaceDirectory enables discovery of new locations, UserDirectory tracks personal interests through saved places and preferences, ExperienceLog converts visits into structured memories, and RecommendationEngine uses all this data to suggest new places to explore. The synchronizations ensure that user actions trigger recommendation updates, keeping suggestions relevant without constant recomputation.
+RecommendationEngine operates as a personalized suggestion system that analyzes user behavior patterns to propose relevant places they haven't yet tried. The concept maintains cached recommendations that update when user preferences, saved places, or logged experiences change, ensuring suggestions remain current without requiring constant recomputation.
+
+The synchronizations establish data flow relationships between these concepts. User actions such as saving places or logging experiences trigger recommendation updates, while new places added to the directory become available for user interaction and influence global recommendation refreshes. This creates a cohesive system where discovery leads to personal tracking, which in turn informs future discovery suggestions.
 
 ## UI Sketches
 
