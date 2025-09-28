@@ -190,14 +190,14 @@ matchamatch combines place discovery with personal experience tracking for match
 
 **purpose** suggest places for users to try based on basic matching criteria
 
-**principle** recommend places the user hasn't tried yet, prioritizing those similar to their saved places or matching their stated preferences
+**principle** recommendations are computed from user preferences, saved places, and experience history, then cached until user behavior changes warrant a refresh
 
 **state**
 
-    a Map of Recommendations with
+    a Map (called recommendations) mapping
         a user User to a set Place
     
-    a Map of lastUpdated with 
+    a Map (called lastUpdated) mapping 
         a user User to a DateTime
 
 **actions**
@@ -216,19 +216,14 @@ matchamatch combines place discovery with personal experience tracking for match
         **effects** remove recommendations[userId] and lastUpdated[userId]
 
 
+Notes: the recommendation scoring here is simplified for this design phase.
+
+
 ### Synchronizations
 
     sync SavedPlaceSync:
         when PlaceDirectory.create_place(name, address, coords, styles) returns placeId
         then UserDirectory.save_place(userId, placeId) can reference the new place
-
-    sync ExperienceToTriedSync:
-        when ExperienceLog.create_log(userId, placeId, rating) returns logId  
-        then placeId becomes part of UserDirectory.get_tried_places(userId)
-
-    sync LogDeletionSync:
-        when ExperienceLog.delete_log(logId) removes user's last log for placeId
-        then placeId is removed from UserDirectory.get_tried_places(userId)
 
     sync RecommendationRefreshSync:
         when UserDirectory.save_place(userId, placeId)
